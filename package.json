@@ -50,12 +50,13 @@
     "codecov": "cat coverage/*/lcov.info | codecov"
   },
   "dependencies": {
-    "classnames": "^2.1.2",
+    "classnames": "^2.2.5",
     "dom-helpers": "^2.4.0",
-    "lodash": "^4.12.0",
-    "moment": "^2.13.0",
+    "lodash": "^4.14.0",
+    "moment": "^2.14.1",
     "moment-range": "^2.2.0",
-    "react-virtualized": "^7.3.2"
+    "phantomjs-prebuilt": "^2.1.8",
+    "react-virtualized": "^7.14.0"
   },
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0",
@@ -126,7 +127,7 @@
     "style-loader": "^0.13.1",
     "webpack": "^1.9.11",
     "webpack-dev-middleware": "^1.2.0",
-    "webpack-hot-middleware": "^2.9.1",
+    "webpack-hot-middleware": "^2.12.2",
     "yargs": "^4.7.1"
   },
   "xo": {
