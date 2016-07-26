@@ -219,7 +219,7 @@
       margin: 0;
       border-radius: 0px;
       line-height: 114px;
-      z-index: 2; }
+      opacity: .5; }
       .Cal__Day__root.Cal__Day__selected .Cal__Day__selection .Cal__Day__month {
         width: 100%;
         left: 0px;
@@ -276,10 +276,21 @@
     vertical-align: initial; }
   .Cal__Day__marker .Cal__Day__note {
     background-color: deepskyblue; }
+
+@media screen and (max-width: 500px) {
+  .Cal__Day__marker {
+    bottom: 0px; }
+    .Cal__Day__marker .Cal__Day__img, .Cal__Day__marker .Cal__Day__note {
+      margin-left: 3px;
+      width: 10px;
+      height: 10px; }
+  .Cal__Day__root.Cal__Day__selected .Cal__Day__selection .Cal__Day__month {
+    font-size: 12px;
+    top: 20px; }
+  .Cal__Day__root.Cal__Day__selected .Cal__Day__selection .Cal__Day__day {
+    display: none; } }
 .Cal__Month__root {
-  position: relative;
-  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.05) 100%);
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.05) 100%); }
+  position: relative; }
 
 .Cal__Month__row {
   padding: 0;

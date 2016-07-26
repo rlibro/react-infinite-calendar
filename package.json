@@ -46,6 +46,9 @@
     "clean:umd": "rimraf dist/umd",
     "clean:es6": "rimraf dist/es6",
     "clean:commonjs": "rimraf dist/commonjs",
+    "deploy":"npm run build && npm run deploy:js && rimraf dist && npm run deploy:css",
+    "deploy:js":"cp -rf dist ~/git/rlibro-client/app/libs/react-infinite-calendar/",
+    "deploy:css":"cp -rf styles.css ~/git/rlibro-client/app/less/react-infinite-calendar.less",
     "test": "cross-env BABEL_ENV=testing karma start --single-run --browsers PhantomJS",
     "codecov": "cat coverage/*/lcov.info | codecov"
   },
