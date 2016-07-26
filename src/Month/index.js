@@ -8,7 +8,7 @@ export default class Month extends Component {
 		return (!nextProps.isScrolling && !this.props.isScrolling);
 	}
 	renderRows() {
-		let {disabledDates, disabledDays, displayDate, locale, maxDate, minDate, onDaySelect, rowHeight, rows, selectedDate, today, theme} = this.props;
+		let {disabledDates, disabledDays, displayDate, locale, maxDate, minDate, onDaySelect, rowHeight, rows, selectedDate, today, theme, data} = this.props;
 		let currentYear = today.date.year();
 		let monthShort = displayDate.format('MMM');
 		let monthRows = [];
@@ -17,6 +17,7 @@ export default class Month extends Component {
 		let isSelected = false;
 		let isToday = false;
 		let row, date, days;
+		let dayInfo = {}
 
 		// Oh the things we do in the name of performance...
 		for (let i = 0, len = rows.length; i < len; i++) {
@@ -36,6 +37,8 @@ export default class Month extends Component {
 					disabledDates && disabledDates.length && disabledDates.indexOf(date.yyyymmdd) !== -1
 				);
 
+				dayInfo = data[date.yyyymmdd] || {}
+
 				days[k] = (
 					<Day
 						key={`day-${day}`}
@@ -49,6 +52,7 @@ export default class Month extends Component {
 						locale={locale}
 						monthShort={monthShort}
 						theme={theme}
+						info={dayInfo}
 					/>
 				);
 			}

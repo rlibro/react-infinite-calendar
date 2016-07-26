@@ -3,13 +3,12 @@
 @mixin circle() {
     content: '';
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: $rowHeight - 4px;
-    height: $rowHeight - 4px;
-    margin-top: -0.5 * ($rowHeight - 4px);
-    margin-left: -0.5 * ($rowHeight - 4px);
-    border-radius: 50%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin:0;
+    border-radius: 0px;
 }
 
 .root {
@@ -33,7 +32,7 @@
             &:before {
                 @include circle();
 
-                background-color: #EFEFEF;
+                background-color: antiquewhite;
                 z-index: -1;
             }
         }
@@ -89,11 +88,17 @@
             z-index: 2;
 
             .month {
-                top: 9px;
+                width: 100%;
+                left: 0px;
+                top: 15px;
+                font-weight: bold;
+                font-size: 14px;
             }
             .day {
                 position: relative;
                 top: 5px;
+                width: 100%;
+                left: 0px;
 
                 font-weight: bold;
                 font-size: 18px;
@@ -105,20 +110,57 @@
         color: #AAA;
         cursor: not-allowed;
     }
+
+    position: relative;
+    border: 1px solid #efefef;
+    overflow: hidden;
+    min-height: 56px;
+    height: 100%;
 }
 
-.month, .year {
+.month, .year, .day {
     position: absolute;
-    left: 0;
-    right: 0;
-
     font-size: 12px;
-    line-height: 12px;
+    line-height: initial;
 }
 
+.day {
+    top: 5px;
+    right: 5px;
+    font-size: 14px;
+}
 .month {
     top: 5px;
+    left: 5px;
 }
 .year {
+    right: 5px;
     bottom: 5px;
+}
+
+.marker {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 5px;
+    height: 20px;
+    text-align: left;
+    line-height: initial;
+
+    .img, .note {
+
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        display: inline-block;
+        overflow: auto;
+        position: relative;
+        margin-left: 5px;
+    }
+    .img { 
+        vertical-align: initial;
+    }
+    .note {
+        background-color: deepskyblue;
+    }
 }

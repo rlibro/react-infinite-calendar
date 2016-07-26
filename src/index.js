@@ -87,7 +87,8 @@ export default class InfiniteCalendar extends Component {
 		shouldHeaderAnimate: PropTypes.bool,
 		showOverlay: PropTypes.bool,
 		showTodayHelper: PropTypes.bool,
-		showHeader: PropTypes.bool
+		showHeader: PropTypes.bool,
+		data: PropTypes.object
 	};
 	componentDidMount() {
 		let {autoFocus, keyboardSupport} = this.props;
@@ -234,7 +235,7 @@ export default class InfiniteCalendar extends Component {
 		let {showToday} = this.state;
 		let {height, rowHeight, todayHelperRowOffset} = this.props;
 		let newState;
-		let dayOffset = Math.ceil((date.date()-7+moment(date).startOf("month").day())/7)*rowHeight; //offset of "today" within its month
+		let dayOffset = Math.ceil((date.date()-7+moment(date).startOf('month').day())/7)*rowHeight; //offset of "today" within its month
 
 		if (scrollTop >= this.todayOffset + dayOffset + rowHeight * (todayHelperRowOffset+1)) {
 			if (showToday !== 1) newState = 1; //today is above the fold
@@ -368,6 +369,7 @@ export default class InfiniteCalendar extends Component {
 			showHeader,
 			tabIndex,
 			width,
+			data,
 			...other
 		} = this.props;
 		let disabledDates = this.getDisabledDates(this.props.disabledDates);
@@ -410,6 +412,7 @@ export default class InfiniteCalendar extends Component {
 							maxDate={parseDate(maxDate)}
 							theme={theme}
 							locale={locale}
+							data={data}
 							overscanMonthCount={overscanMonthCount}
 						/>
 					</div>

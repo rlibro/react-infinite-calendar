@@ -157,21 +157,25 @@
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
-          user-select: none; }
+          user-select: none;
+  position: relative;
+  border: 1px solid #efefef;
+  overflow: hidden;
+  min-height: 56px;
+  height: 100%; }
   .Cal__Day__root.Cal__Day__enabled.Cal__Day__highlighted, .Cal__Day__root.Cal__Day__enabled:active, .Cal__Day__root.Cal__Day__enabled:hover {
     position: relative;
     z-index: 1; }
     .Cal__Day__root.Cal__Day__enabled.Cal__Day__highlighted:before, .Cal__Day__root.Cal__Day__enabled:active:before, .Cal__Day__root.Cal__Day__enabled:hover:before {
       content: '';
       position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 52px;
-      height: 52px;
-      margin-top: -26px;
-      margin-left: -26px;
-      border-radius: 50%;
-      background-color: #EFEFEF;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      border-radius: 0px;
+      background-color: antiquewhite;
       z-index: -1; }
   .Cal__Day__root.Cal__Day__enabled:hover:before {
     opacity: 0.5; }
@@ -189,13 +193,12 @@
     .Cal__Day__root.Cal__Day__today:before {
       content: '';
       position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 52px;
-      height: 52px;
-      margin-top: -26px;
-      margin-left: -26px;
-      border-radius: 50%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      border-radius: 0px;
       box-shadow: inset 0 0 0 1px;
       z-index: -1; }
     .Cal__Day__root.Cal__Day__today.Cal__Day__disabled:before {
@@ -209,20 +212,25 @@
     .Cal__Day__root.Cal__Day__selected .Cal__Day__selection {
       content: '';
       position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 52px;
-      height: 52px;
-      margin-top: -26px;
-      margin-left: -26px;
-      border-radius: 50%;
-      line-height: 56px;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      border-radius: 0px;
+      line-height: 114px;
       z-index: 2; }
       .Cal__Day__root.Cal__Day__selected .Cal__Day__selection .Cal__Day__month {
-        top: 9px; }
+        width: 100%;
+        left: 0px;
+        top: 15px;
+        font-weight: bold;
+        font-size: 14px; }
       .Cal__Day__root.Cal__Day__selected .Cal__Day__selection .Cal__Day__day {
         position: relative;
         top: 5px;
+        width: 100%;
+        left: 0px;
         font-weight: bold;
         font-size: 18px; }
   .Cal__Day__root.Cal__Day__disabled {
@@ -230,18 +238,44 @@
     color: #AAA;
     cursor: not-allowed; }
 
-.Cal__Day__month, .Cal__Day__year {
+.Cal__Day__month, .Cal__Day__year, .Cal__Day__day {
   position: absolute;
-  left: 0;
-  right: 0;
   font-size: 12px;
-  line-height: 12px; }
+  line-height: initial; }
+
+.Cal__Day__day {
+  top: 5px;
+  right: 5px;
+  font-size: 14px; }
 
 .Cal__Day__month {
-  top: 5px; }
+  top: 5px;
+  left: 5px; }
 
 .Cal__Day__year {
+  right: 5px;
   bottom: 5px; }
+
+.Cal__Day__marker {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 5px;
+  height: 20px;
+  text-align: left;
+  line-height: initial; }
+  .Cal__Day__marker .Cal__Day__img, .Cal__Day__marker .Cal__Day__note {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: inline-block;
+    overflow: auto;
+    position: relative;
+    margin-left: 5px; }
+  .Cal__Day__marker .Cal__Day__img {
+    vertical-align: initial; }
+  .Cal__Day__marker .Cal__Day__note {
+    background-color: deepskyblue; }
 .Cal__Month__root {
   position: relative;
   background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.05) 100%);
@@ -257,12 +291,7 @@
       top: 1px;
       z-index: 1;
       margin-top: -1px;
-      background-color: #FFF;
-      box-shadow: 0 -1px 0 #E9E9E9; }
-  .Cal__Month__row:nth-child(2) {
-    box-shadow: 0 -1px 0 #E9E9E9; }
-  .Cal__Month__row.Cal__Month__partial:first-child li:first-child {
-    border-left: 1px solid #E9E9E9; }
+      background-color: #FFF; }
   .Cal__Month__row.Cal__Month__partial:last-child li {
     position: relative;
     z-index: 1; }
@@ -286,7 +315,7 @@
     left: 0;
     right: 0;
     top: 0;
-    bottom: 56px;
+    bottom: 114px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -297,7 +326,7 @@
         -ms-flex-pack: center;
             justify-content: center; }
   .Cal__Month__label.Cal__Month__partialFirstRow {
-    top: 56px; }
+    top: 114px; }
 .Cal__List__root {
   width: 100% !important;
   background-color: #FFF; }

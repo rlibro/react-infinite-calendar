@@ -25,13 +25,15 @@ export default class List extends Component {
 		maxDate: validParsedDate,
 		showOverlay: PropTypes.bool,
 		theme: PropTypes.object,
-		locale: PropTypes.object
+		locale: PropTypes.object,
+		data: PropTypes.object
 	};
 	componentDidMount() {
 		let vs = this.refs.VirtualScroll;
 		let grid = vs && vs.refs.Grid;
 
-		this.scrollEl = grid && grid.refs.scrollingContainer;
+
+		this.scrollEl = vs; //grid && grid.refs.scrollingContainer;
 	}
 	cache = {};
 	state = {};
@@ -81,7 +83,7 @@ export default class List extends Component {
 		}
 	};
 	renderMonth = ({index, isScrolling}) => {
-		let {disabledDates, disabledDays, locale, months, maxDate, minDate, onDaySelect, rowHeight, selectedDate, showOverlay, theme, today} = this.props;
+		let {disabledDates, disabledDays, locale, months, maxDate, minDate, onDaySelect, rowHeight, selectedDate, showOverlay, theme, today, data} = this.props;
 		let {date, rows} = this.memoize(months[index]);
 
 		return (
@@ -101,6 +103,7 @@ export default class List extends Component {
 				today={today}
 				theme={theme}
 				locale={locale}
+				data={data}
 			/>
 		);
 	};
