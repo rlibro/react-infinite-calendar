@@ -88,7 +88,7 @@ export default class InfiniteCalendar extends Component {
 		showOverlay: PropTypes.bool,
 		showTodayHelper: PropTypes.bool,
 		showHeader: PropTypes.bool,
-		data: PropTypes.object
+		data: PropTypes.object.isRequired
 	};
 	componentDidMount() {
 		let {autoFocus, keyboardSupport} = this.props;

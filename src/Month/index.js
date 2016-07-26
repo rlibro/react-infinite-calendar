@@ -37,7 +37,11 @@ export default class Month extends Component {
 					disabledDates && disabledDates.length && disabledDates.indexOf(date.yyyymmdd) !== -1
 				);
 
-				dayInfo = data[date.yyyymmdd] || {}
+				if( data && typeof data[date.yyyymmdd] !== 'undefined'){
+					dayInfo = data[date.yyyymmdd];
+				} else {
+					dayInfo = {};
+				}
 
 				days[k] = (
 					<Day

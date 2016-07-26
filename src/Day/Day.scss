@@ -85,7 +85,8 @@
         .selection {
             @include circle();
             line-height: $rowHeight;
-            z-index: 2;
+            //z-index: 2;
+            opacity: .5;
 
             .month {
                 width: 100%;
@@ -162,5 +163,28 @@
     }
     .note {
         background-color: deepskyblue;
+    }
+}
+
+
+@media screen and (max-width: 500px) /* Mobile */ {
+    .marker {
+        bottom: 0px;
+
+        .img, .note {
+            margin-left: 3px;
+            width: 10px;
+            height: 10px;
+        }
+    }
+
+    .root.selected .selection {
+        .month {
+            font-size: 12px;
+            top: 20px;
+        }
+        .day {
+            display: none;
+        }
     }
 }
